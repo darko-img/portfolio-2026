@@ -81,6 +81,7 @@
 </header>
 
 <section id="wrapper">
+
 	<section
 		id="intro"
 		class="pointer-events-none flex h-screen max-w-full justify-center px-4 py-5 lg:pointer-events-auto"
@@ -88,12 +89,6 @@
 		<div class="z-0">
 			<RiveAuge />
 		</div>
-
-		<!-- <p
-    class="pointer-events-none absolute left-0 bottom-0 z-100 px-4 py-5 text-right text-base leading-none uppercase"
-  >
-    0
-</p> -->
 
 		<p
 			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-base leading-none uppercase"
@@ -231,6 +226,7 @@
 			</div>
 		</footer>
 	</section>
+
 </section>
 
 <style>
