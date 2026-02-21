@@ -36,5 +36,5 @@
 
 <canvas
   bind:this={canvasEl}
-  class={isSmall ? "w-[600px] h-[600px]" : "w-[750px] h-[750px]"}
+  class={isSmall ? "w-[550px] h-[550px]" : "w-[750px] h-[750px]"}
 ></canvas>
