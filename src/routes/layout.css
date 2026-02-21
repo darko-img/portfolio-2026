@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet');
+
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    /* Light */
+
+    --color-bg: #ffffff;
+
+    --color-text: #111111;
+
+    --color-border: #111111;
+
+    --color-progress: #111111;
+
+    --color-off: #909090;
+
+    --color-hover-text: #111111;
+  }
+
+  html[data-theme="dark"] {
+    /* Dark */
+
+    --color-bg: #111111;
+
+    --color-text: #ffffff;
+
+    --color-border: #ffffff;
+
+    --color-progress: #ffffff;
+
+    --color-off: #909090;
+
+    --color-hover-text: #111111;
+  }
+
+  html,
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-color: var(--color-border);
+
+    transition:
+    background-color 0.5s cubic-bezier(0.42,0,0.58,1),
+    color 0.5s cubic-bezier(0.42,0,0.58,1),
+    border-color 0.5s cubic-bezier(0.42,0,0.58,1);
+  }
+
+  body {
+    font-family: 'IBM Plex Mono', monospace;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+}
