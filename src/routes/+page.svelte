@@ -79,10 +79,17 @@
 	</div>
 </header>
 
-<section id="intro" class="flex h-screen justify-center px-4 py-5">
+<section id="intro" class="flex h-screen justify-center px-4 py-5 pointer-events-none md:pointer-events-auto lg:pointer-events-auto">
 	<div class="z-0">
 		<RiveAuge />
 	</div>
+
+  <p
+    id="page-counter"
+    class="pointer-events-none absolute left-0 bottom-0 z-10 px-4 py-5 text-right text-base leading-none uppercase"
+>
+    0
+</p>
 
 	<p
 		class="pointer-events-none absolute right-0 bottom-0 z-10 px-4 py-5 text-right text-base leading-none uppercase"
