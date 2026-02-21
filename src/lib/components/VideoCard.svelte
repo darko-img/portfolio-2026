@@ -11,12 +11,12 @@
 	{#if video.previewUrl && video.videoUrl}
 		<a href={video.videoUrl} target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
 			{#if !isLoaded}
-				<div class="absolute inset-0 animate-pulse bg-gray-200"></div>
+				<div class="absolute inset-0 animate-pulse bg-gray-400"></div>
 			{/if}
 
 			<video
 				use:lazyVideo={video.previewUrl}
-				class="h-100 w-full object-cover transition-opacity duration-500"
+				class="h-75 md:h-100 w-full object-cover transition-opacity duration-500"
 				class:opacity-0={!isLoaded}
 				class:opacity-100={isLoaded}
 				muted
@@ -28,6 +28,6 @@
 			</video>
 		</a>
 	{:else}
-		<div class="flex h-100 w-full animate-pulse items-center justify-center bg-gray-200"></div>
+		<div class="flex h-100 w-full animate-pulse items-center justify-center bg-gray-400"></div>
 	{/if}
 </div>
