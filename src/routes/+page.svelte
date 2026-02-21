@@ -55,32 +55,31 @@
 
 <!-- Partikel -->
 <div class="max-w-full fixed inset-0">
-	<div class="z-0 group-hover:pointer-events-auto">
+	<div class="z-[0] group-hover:pointer-events-auto">
 		<RiveBackground />
 	</div>
 </div>
 
 <section id="start"></section>
 
-<header id="header" class="sticky top-0 z-100 w-full bg-[var(--color-bg)] px-1 py-1">
-	<div class="mx-auto flex max-w-full items-center justify-between">
-		<div class="h-5 w-16 overflow-hidden bg-gray-200">
-			<div
-				class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-250 ease-linear"
-				style="transform: scaleX({$scrollProgress / 100})"
-			></div>
-		</div>
+<header id="header" class="sticky top-0 z-[100] w-full bg-[var(--color-bg)] px-1 py-1">
+  <div class="mx-auto flex max-w-full items-center justify-between">
+    <div class="h-5 w-16 overflow-hidden bg-gray-200">
+      <div
+        class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-250 ease-linear"
+        style="transform: scaleX({$scrollProgress / 100})"
+      ></div>
+    </div>
 
-		<nav class="flex gap-3 text-lg uppercase">
-			<!-- <a href="#start" class="px-2 bg-gray-200">0</a> -->
-			<a href="#galerie" class="px-2">Galerie</a>
-			<a href="#info" class="px-2">Info</a>
-		</nav>
-	</div>
+    <nav class="flex gap-3 text-lg uppercase">
+      <a href="#galerie" class="px-2">Galerie</a>
+      <a href="#info" class="px-2">Info</a>
+    </nav>
+  </div>
 </header>
 
 <section id="intro" class="max-w-full flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
-	<div class="z-0">
+	<div class="z-[0]">
 		<RiveAuge />
 	</div>
 
