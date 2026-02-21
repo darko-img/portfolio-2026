@@ -63,4 +63,11 @@
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
   }
+
+  @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden; /* horizontales Overscroll verhindern */
+    touch-action: pan-y; /* erlaubt nur vertikales Scrollen */
+  }
+
 }
