@@ -184,7 +184,7 @@
 			</div>
 
 			<div class="pointer-events-none h-[55px]">
-				<DarekGif {frames} frameDuration={125} />
+				<DarekGif {frames} frameDuration={60} />
 			</div>
 
 			<!-- contact -->
