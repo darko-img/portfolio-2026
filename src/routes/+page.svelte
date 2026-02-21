@@ -54,7 +54,7 @@
 </script>
 
 <!-- Partikel -->
-<div class="fixed inset-0">
+<div class="max-w-full fixed inset-0">
 	<div class="z-0 group-hover:pointer-events-auto">
 		<RiveBackground />
 	</div>
@@ -79,7 +79,7 @@
 	</div>
 </header>
 
-<section id="intro" class="flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
+<section id="intro" class="max-w-full flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
 	<div class="z-0">
 		<RiveAuge />
 	</div>

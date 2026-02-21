@@ -47,6 +47,9 @@
 
   html,
   body {
+    overflow-x: hidden;
+    width: 100%;
+
     background-color: var(--color-bg);
     color: var(--color-text);
     border-color: var(--color-border);
@@ -69,5 +72,5 @@
     overflow-x: hidden; /* horizontales Overscroll verhindern */
     touch-action: pan-y; /* erlaubt nur vertikales Scrollen */
   }
-
+}
 }
