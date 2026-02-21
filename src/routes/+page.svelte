@@ -79,7 +79,7 @@
 	</div>
 </header>
 
-<section id="intro" class="flex h-screen justify-center px-4 py-5 pointer-events-none md:pointer-events-auto lg:pointer-events-auto">
+<section id="intro" class="flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
 	<div class="z-0">
 		<RiveAuge />
 	</div>
@@ -153,19 +153,19 @@
 	<div class="mx-auto mt-15 max-w-full text-justify md:mt-20 lg:mt-25">
 		<div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-20 lg:grid-cols-3 lg:gap-30">
 			<div class="spacer flex flex-col items-center gap-5 text-sm">
-				<div class="z-3 cursor-pointer"><RandomGrid /></div>
+				<div class="z-3 cursor-pointer pointer-events-none lg:pointer-events-auto"><RandomGrid /></div>
 				<p class="text-center">[ID]<br />Dariusz Tomaszewski</p>
 			</div>
 
 			<div class="spacer flex flex-col items-center gap-5 text-sm">
-				<div class="z-3 cursor-pointer"><SineGrid /></div>
+				<div class="z-3 cursor-pointer pointer-events-none lg:pointer-events-auto"><SineGrid /></div>
 				<p class="text-center">
 					[DNS]<br />Grafikdesigner mit Fokus auf<br />Motion- und Web Design.
 				</p>
 			</div>
 
 			<div class="spacer flex flex-col items-center gap-5 text-sm">
-				<div class="z-3 cursor-pointer"><RadioGrid /></div>
+				<div class="z-3 cursor-pointer pointer-events-none lg:pointer-events-auto"><RadioGrid /></div>
 				<p class="text-center">[POSITION]<br />52.5343°N, 13.2002°E<br />(Berlin, Germany)</p>
 			</div>
 		</div>
