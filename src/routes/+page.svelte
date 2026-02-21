@@ -150,7 +150,7 @@
 	</p>
 
 	<!-- info grid -->
-	<div class="mx-auto mt-15 max-w-full text-justify md:mt-20 lg:mt-25">
+	<div class="mx-auto mt-10 max-w-full text-justify md:mt-20 lg:mt-25">
 		<div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-20 lg:grid-cols-3 lg:gap-30">
 			<div class="spacer flex flex-col items-center gap-5 text-sm">
 				<div class="z-3 cursor-pointer pointer-events-none lg:pointer-events-auto"><RandomGrid /></div>
