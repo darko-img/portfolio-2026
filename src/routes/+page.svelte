@@ -55,7 +55,7 @@
 
 <!-- Partikel -->
 <div class="max-w-full fixed inset-0">
-	<div class="z-[0] group-hover:pointer-events-auto">
+	<div class="z-[0] group-hover:pointer-events-auto pointer-events-none lg:pointer-events-auto">
 		<RiveBackground />
 	</div>
 </div>
@@ -77,6 +77,8 @@
     </nav>
   </div>
 </header>
+
+<section id="wrapper">
 
 <section id="intro" class="max-w-full flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
 	<div class="z-[0]">
@@ -130,11 +132,14 @@
 	</div>
 
 	<!-- video loop -->
-	<div class="z-3 mt-1 mb-5 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
-		{#each videos as video}
+	<div class="z-3 mt-1 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
+	{#each videos as video, i}
+		<div class={i >= 6 ? "hidden sm:block" : ""}>
 			<VideoCard {video} />
-		{/each}
-	</div>
+		</div>
+	{/each}
+</div>
+
 </section>
 
 <!-- info -->
@@ -233,6 +238,8 @@
 			{berlinTime} CET
 		</div>
 	</footer>
+</section>
+
 </section>
 
 <style>
