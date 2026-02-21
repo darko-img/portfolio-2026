@@ -54,15 +54,17 @@
 </script>
 
 <!-- Partikel -->
+<!-- Partikel -->
+<!-- Partikel -->
 <div class="max-w-full fixed inset-0">
-	<div class="z-[0] group-hover:pointer-events-auto pointer-events-none lg:pointer-events-auto">
+	<div class="z-0 group-hover:pointer-events-auto pointer-events-none lg:pointer-events-auto">
 		<RiveBackground />
 	</div>
 </div>
 
 <section id="start"></section>
 
-<header id="header" class="sticky top-0 z-[100] w-full bg-[var(--color-bg)] px-1 py-1">
+<header id="header" class="sticky top-0 z-100 w-full bg-[var(--color-bg)] px-1 py-1">
   <div class="mx-auto flex max-w-full items-center justify-between">
     <div class="h-5 w-16 overflow-hidden bg-gray-200">
       <div
@@ -80,20 +82,20 @@
 
 <section id="wrapper">
 
-<section id="intro" class="max-w-full flex h-screen justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
-	<div class="z-[0]">
+<section id="intro" class="max-w-full h-screen flex justify-center px-4 py-5 pointer-events-none lg:pointer-events-auto">
+	<div class="z-0">
 		<RiveAuge />
 	</div>
 
   <p
     id="page-counter"
-    class="pointer-events-none absolute left-0 bottom-0 z-10 px-4 py-5 text-right text-base leading-none uppercase"
+    class="pointer-events-none absolute left-0 bottom-0 z-100 px-4 py-5 text-right text-base leading-none uppercase"
 >
     0
 </p>
 
 	<p
-		class="pointer-events-none absolute right-0 bottom-0 z-10 px-4 py-5 text-right text-base leading-none uppercase"
+		class="pointer-events-none absolute right-0 bottom-0 z-100 px-4 py-5 text-right text-base leading-none uppercase"
 	>
 		<CasinoText text="willkommen" />
 	</p>

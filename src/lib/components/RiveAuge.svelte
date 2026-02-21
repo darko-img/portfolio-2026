@@ -1,28 +1,40 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
-	let canvasEl: HTMLCanvasElement;
-	let rive: any;
+  let canvasEl: HTMLCanvasElement;
+  let rive: any;
+  let isSmall = false;
 
-	onMount(async () => {
-		const pkg = await import('@rive-app/canvas');
-		const { Rive, Layout, Fit, Alignment } = pkg;
+  const updateSize = () => {
+    isSmall = window.innerWidth <= 375;
+    rive?.resizeDrawingSurfaceToCanvas(); // Canvas wird angepasst
+  };
 
-		rive = new Rive({
-			src: '/auge.riv',
-			canvas: canvasEl,
-			autoplay: true,
-			artboard: 'auge',
-			stateMachines: 'State Machine Auge',
-			layout: new Layout({
-				fit: Fit.Contain,
-				alignment: Alignment.Center
-			}),
-			onLoad: () => {
-				rive.resizeDrawingSurfaceToCanvas();
-			}
-		});
-	});
+  onMount(async () => {
+    const pkg = await import('@rive-app/canvas');
+    const { Rive, Layout, Fit, Alignment } = pkg;
+
+    rive = new Rive({
+      src: '/auge.riv',
+      canvas: canvasEl,
+      autoplay: true,
+      artboard: 'auge',
+      stateMachines: 'State Machine Auge',
+      layout: new Layout({
+        fit: Fit.Contain,
+        alignment: Alignment.Center
+      }),
+      onLoad: () => {
+        rive.resizeDrawingSurfaceToCanvas();
+      }
+    });
+
+    updateSize();
+    window.addEventListener("resize", updateSize);
+  });
 </script>
 
-<canvas bind:this={canvasEl} class="h-180 w-180"></canvas>
+<canvas
+  bind:this={canvasEl}
+  class={isSmall ? "w-[600px] h-[600px]" : "w-[750px] h-[750px]"}
+></canvas>

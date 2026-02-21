@@ -28,6 +28,6 @@
 			</video>
 		</a>
 	{:else}
-		<div class="flex h-100 w-full animate-pulse items-center justify-center bg-gray-400"></div>
+		<div class="flex h-75 md:h-100 w-full animate-pulse items-center justify-center bg-gray-400"></div>
 	{/if}
 </div>
