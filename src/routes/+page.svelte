@@ -134,7 +134,7 @@
 	<!-- video loop -->
 	<div class="z-3 mt-1 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
 	{#each videos as video, i}
-		<div class={i >= 6 ? "hidden sm:block" : ""}>
+		<div class={i >= 7 ? "hidden sm:block" : ""}>
 			<VideoCard {video} />
 		</div>
 	{/each}
