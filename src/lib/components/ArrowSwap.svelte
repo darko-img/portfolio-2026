@@ -10,7 +10,7 @@
 
   <!-- versteckt -->
   <span
-    class="text-red-500 absolute inset-0 flex items-center justify-center
+    class="absolute inset-0 flex items-center justify-center
            translate-y-full -translate-x-full
            transition-transform duration-300
            ease-[cubic-bezier(0.4,0,0.2,1)]

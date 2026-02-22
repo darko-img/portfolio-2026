@@ -124,7 +124,7 @@
 
 <section id="wrapper">
 	<section
-		class="pointer-events-none flex h-screen max-w-full justify-center px-4 py-5 lg:pointer-events-auto"
+		class="pointer-events-none flex h-screen max-w-full justify-center px-4 lg:pointer-events-auto"
 	>
 		<div class="z-0">
 			<RiveAuge />
@@ -140,9 +140,9 @@
 	<!-- galerie -->
 	<!-- galerie -->
 	<!-- galerie -->
-	<section id="galerie" class="mx-auto min-h-screen max-w-full px-4 py-5">
+	<section id="galerie" class="mx-auto max-w-full px-4 py-5">
 		<!-- galerie title -->
-		<p class="mt-5 max-w-5xl text-sm uppercase">[output 2017–25]</p>
+		<p class="mt-5 max-w-full text-sm uppercase">[output 2017–25]</p>
 		<!-- galerie kategorien -->
 		<div class="mt-1 max-w-5xl uppercase">
 			<ul class="inline-flex list-none gap-1 text-sm uppercase">
@@ -153,7 +153,7 @@
 		</div>
 
 		<!-- video loop -->
-		<div class="z-3 mt-1 mb-5 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="z-3 mt-1 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
 			{#each videos as video, i}
 				<div class={i >= 6 ? 'hidden sm:block' : ''}>
 					<VideoCard {video} />
@@ -266,7 +266,7 @@
 		<footer class="mx-auto flex max-w-full items-center justify-between uppercase">
 			<a href="#start" class="z-3 text-xs uppercase">nach oben</a>
 			<div class="pointer-events-none text-xs uppercase">
-				{berlinTime} CET
+				{berlinTime}
 			</div>
 		</footer>
 	</section>
