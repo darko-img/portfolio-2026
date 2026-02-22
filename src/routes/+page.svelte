@@ -34,6 +34,8 @@
 
 	let berlinTime = '';
 
+	let activeSection = '';
+
 	function updateBerlinTime() {
 		berlinTime = new Date()
 			.toLocaleString('de-DE', {
@@ -49,7 +51,38 @@
 		updateBerlinTime();
 		const interval = setInterval(updateBerlinTime, 1000);
 
-		return () => clearInterval(interval);
+		const sections = document.querySelectorAll('#start, #galerie, #info');
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				let maxRatio = 0;
+				let currentId = activeSection;
+
+				entries.forEach((entry) => {
+					if (entry.intersectionRatio > maxRatio) {
+						maxRatio = entry.intersectionRatio;
+						currentId = entry.target.id;
+					}
+				});
+
+				if (currentId && currentId !== activeSection) {
+					activeSection = currentId;
+
+					// URL updaten ohne Scroll-Sprung
+					history.replaceState(null, '', `#${currentId}`);
+				}
+			},
+			{
+				threshold: 0.3
+			}
+		);
+
+		sections.forEach((section) => observer.observe(section));
+
+		return () => {
+			observer.disconnect();
+			clearInterval(interval);
+		};
 	});
 </script>
 
@@ -74,15 +107,14 @@
 		</div>
 
 		<nav class="flex gap-3 text-lg uppercase">
-      <a href="#start" class="px-2">Start</a>
-			<a href="#galerie" class="px-2">Galerie</a>
-			<a href="#info" class="px-2">Info</a>
+			<a href="#start" class="px-2" class:opacity-50={activeSection === 'start'}>Start</a>
+			<a href="#galerie" class="px-2" class:opacity-50={activeSection === 'galerie'}>Galerie</a>
+			<a href="#info" class="px-2" class:opacity-50={activeSection === 'info'}>Info</a>
 		</nav>
 	</div>
 </header>
 
 <section id="wrapper">
-
 	<section
 		id="intro"
 		class="pointer-events-none flex h-screen max-w-full justify-center px-4 py-5 lg:pointer-events-auto"
@@ -131,10 +163,10 @@
 		<!-- info hero text -->
 		<p class="pointer-events-none text-2xl uppercase md:text-5xl lg:text-7xl">
 			An der Schnittstelle<br />
-      von Design und<br />
-      Technologie, erstelle<br />
-      ich dynamische<br />
-      Komponenten für die<br />
+			von Design und<br />
+			Technologie, erstelle<br />
+			ich dynamische<br />
+			Komponenten für die<br />
 			digitale Welt.
 		</p>
 
@@ -231,7 +263,6 @@
 			</div>
 		</footer>
 	</section>
-
 </section>
 
 <style>
