@@ -16,9 +16,7 @@
 
 	const frames = [
 		'/images/darek-1.jpg',
-		'/images/darek-2.jpg',
 		'/images/darek-3.jpg',
-		'/images/darek-4.jpg',
 		'/images/darek-5.jpg'
 	];
 
@@ -56,7 +54,7 @@
 					if (entry.isIntersecting) {
 						const id = entry.target.id;
 						activeSection.set(id);
-						document.title = `DARO – ${id.charAt(0).toUpperCase() + id.slice(1)}`; // Tab-Titel aktualisieren
+						document.title = `DARO – ${id.toUpperCase()}`; // Tab-Titel aktualisieren
 					}
 				});
 			},
