@@ -130,13 +130,18 @@
 			<RiveAuge />
 		</div>
 
-		<p
-			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-base leading-none uppercase"
+		<!-- <p
+			class="pointer-events-none absolute left-0 bottom-0 z-90 px-4 py-5 text-right text-base leading-none uppercase"
 		>
-			<CasinoText text="" />
+			<CasinoText text="darooo" />
+		</p> -->
+
+    <p
+			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-xl leading-none uppercase"
+		>
+			<CasinoText text="↓" />
 		</p>
 
-    <div class="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 w-15 h-[1px] bg-gray-500"></div>
 
 	</section>
 
