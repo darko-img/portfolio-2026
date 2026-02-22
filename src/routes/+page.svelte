@@ -48,7 +48,6 @@
 		if (section) {
 			activeSection.set(id); // sofort setzen
 			document.title = `DARO – ${id.charAt(0).toUpperCase() + id.slice(1)}`; // Tab-Titel
-			section.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
 
