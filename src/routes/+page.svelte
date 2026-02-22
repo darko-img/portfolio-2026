@@ -5,13 +5,18 @@
 	import { writable } from 'svelte/store';
 
 	import VideoCard from '$lib/components/VideoCard.svelte';
+
 	import ArrowSwap from '$lib/components/ArrowSwap.svelte';
+
 	import RadioGrid from '$lib/components/RadioGrid.svelte';
 	import SineGrid from '$lib/components/SineGrid.svelte';
 	import RandomGrid from '$lib/components/RandomGrid.svelte';
+
 	import RiveBackground from '$lib/components/RiveBackground.svelte';
 	import RiveAuge from '$lib/components/RiveAuge.svelte';
+
 	import CasinoText from '$lib/components/CasinoText.svelte';
+
 	import DarekGif from '$lib/components/DarekGif.svelte';
 
 	const frames = [

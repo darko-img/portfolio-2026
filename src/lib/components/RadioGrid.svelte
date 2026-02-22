@@ -51,7 +51,7 @@
 	bind:this={gridEl}
 	class="grid w-40 h-40 md:w-35 md:h-35 lg:w-50 lg:h-50 grid-cols-10 grid-rows-10"
 	role="region"
-	aria-label="Radio animated grid"
+	aria-label="Radio Grid"
 	on:mouseenter={() => (targetSpeed = hoverSpeed)}
 	on:mouseleave={() => (targetSpeed = normalSpeed)}
 ></div>
