@@ -74,6 +74,7 @@
 		</div>
 
 		<nav class="flex gap-3 text-lg uppercase">
+      <a href="#start" class="px-2">Start</a>
 			<a href="#galerie" class="px-2">Galerie</a>
 			<a href="#info" class="px-2">Info</a>
 		</nav>
