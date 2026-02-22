@@ -2,20 +2,16 @@
 	import { videos } from '$lib/data/videos';
 	import { scrollProgress } from '$lib/stores/scroll';
 	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store';
 
 	import VideoCard from '$lib/components/VideoCard.svelte';
-
 	import ArrowSwap from '$lib/components/ArrowSwap.svelte';
-
 	import RadioGrid from '$lib/components/RadioGrid.svelte';
 	import SineGrid from '$lib/components/SineGrid.svelte';
 	import RandomGrid from '$lib/components/RandomGrid.svelte';
-
 	import RiveBackground from '$lib/components/RiveBackground.svelte';
 	import RiveAuge from '$lib/components/RiveAuge.svelte';
-
 	import CasinoText from '$lib/components/CasinoText.svelte';
-
 	import DarekGif from '$lib/components/DarekGif.svelte';
 
 	const frames = [
@@ -34,7 +30,7 @@
 
 	let berlinTime = '';
 
-	let activeSection = '';
+	export let activeSection = writable('start'); // Default: Start
 
 	function updateBerlinTime() {
 		berlinTime = new Date()
@@ -47,41 +43,43 @@
 			.toUpperCase();
 	}
 
+	function scrollToSection(id: string) {
+		const section = document.getElementById(id);
+		if (section) {
+			activeSection.set(id); // sofort setzen
+			document.title = `DARO – ${id.charAt(0).toUpperCase() + id.slice(1)}`; // Tab-Titel
+			section.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+
 	onMount(() => {
 		updateBerlinTime();
 		const interval = setInterval(updateBerlinTime, 1000);
 
-		const sections = document.querySelectorAll('#start, #galerie, #info');
+		const sections = document.querySelectorAll('section[id]');
 
 		const observer = new IntersectionObserver(
 			(entries) => {
-				let maxRatio = 0;
-				let currentId = activeSection;
-
 				entries.forEach((entry) => {
-					if (entry.intersectionRatio > maxRatio) {
-						maxRatio = entry.intersectionRatio;
-						currentId = entry.target.id;
+					if (entry.isIntersecting) {
+						const id = entry.target.id;
+						activeSection.set(id);
+						document.title = `DARO – ${id.charAt(0).toUpperCase() + id.slice(1)}`; // Tab-Titel aktualisieren
 					}
 				});
-
-				if (currentId && currentId !== activeSection) {
-					activeSection = currentId;
-
-					// URL updaten ohne Scroll-Sprung
-					history.replaceState(null, '', `#${currentId}`);
-				}
 			},
 			{
-				threshold: 0.1
+				root: null,
+				rootMargin: '100px',
+				threshold: 0.35 //
 			}
 		);
 
 		sections.forEach((section) => observer.observe(section));
 
 		return () => {
-			observer.disconnect();
 			clearInterval(interval);
+			sections.forEach((section) => observer.unobserve(section));
 		};
 	});
 </script>
@@ -106,17 +104,30 @@
 			></div>
 		</div>
 
-		<nav class="flex gap-3 text-lg uppercase">
-			<a href="#start" class="px-2" class:opacity-50={activeSection === 'start'}>Start</a>
-			<a href="#galerie" class="px-2" class:opacity-50={activeSection === 'galerie'}>Galerie</a>
-			<a href="#info" class="px-2" class:opacity-50={activeSection === 'info'}>Info</a>
-		</nav>
+		<nav class="flex gap-3 text-lg uppercase text-gray-400">
+	<a
+		href="#start"
+		class="px-2"
+		class:text-black={$activeSection === 'start'}
+	>Start</a>
+
+	<a
+		href="#galerie"
+		class="px-2"
+		class:text-black={$activeSection === 'galerie'}
+	>Galerie</a>
+
+	<a
+		href="#info"
+		class="px-2"
+		class:text-black={$activeSection === 'info'}
+	>Info</a>
+</nav>
 	</div>
 </header>
 
 <section id="wrapper">
 	<section
-		id="intro"
 		class="pointer-events-none flex h-screen max-w-full justify-center px-4 py-5 lg:pointer-events-auto"
 	>
 		<div class="z-0">
@@ -133,7 +144,7 @@
 	<!-- galerie -->
 	<!-- galerie -->
 	<!-- galerie -->
-	<section id="galerie" class="mx-auto max-w-full px-4 py-5">
+	<section id="galerie" class="mx-auto min-h-screen max-w-full px-4 py-5">
 		<!-- galerie title -->
 		<p class="mt-5 max-w-5xl text-sm uppercase">[output 2017–25]</p>
 		<!-- galerie kategorien -->
@@ -146,9 +157,9 @@
 		</div>
 
 		<!-- video loop -->
-		<div class="z-3 mt-1 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="z-3 mt-1 mb-5 grid cursor-pointer gap-1 sm:grid-cols-2 lg:grid-cols-3">
 			{#each videos as video, i}
-				<div class={i >= 9 ? 'hidden sm:block' : ''}>
+				<div class={i >= 6 ? 'hidden sm:block' : ''}>
 					<VideoCard {video} />
 				</div>
 			{/each}
