@@ -22,7 +22,8 @@
 	const frames = [
 		'/images/darek-1.jpg',
 		'/images/darek-3.jpg',
-		'/images/darek-5.jpg'
+		'/images/darek-4.jpg',
+    '/images/darek-5.jpg'
 	];
 
 	const links = [
