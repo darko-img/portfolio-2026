@@ -68,7 +68,7 @@
 	<div class="mx-auto flex max-w-full items-center justify-between">
 		<div class="h-5 w-16 overflow-hidden bg-gray-200">
 			<div
-				class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-200 ease-linear"
+				class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-250 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"
 			></div>
 		</div>
@@ -129,13 +129,17 @@
 	<section id="info" class="mx-auto max-w-full px-4 py-5">
 		<p class="mt-5 max-w-5xl text-sm uppercase">[info]</p>
 		<!-- info hero text -->
-		<p class="pointer-events-none max-w-5xl text-2xl uppercase md:text-5xl lg:text-7xl">
-			An der Schnittstelle von Design und Technologie, erstelle ich dynamische Komponenten für die
+		<p class="pointer-events-none text-2xl uppercase md:text-5xl lg:text-7xl">
+			An der Schnittstelle<br />
+      von Design und<br />
+      Technologie, erstelle<br />
+      ich dynamische<br />
+      Komponenten für die<br />
 			digitale Welt.
 		</p>
 
 		<!-- info grid -->
-		<div class="mx-auto mt-10 max-w-full text-justify md:mt-20 lg:mt-25">
+		<div class="mx-auto mt-15 max-w-full text-justify md:mt-20 lg:mt-25">
 			<div class="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-20 lg:grid-cols-3 lg:gap-30">
 				<div class="spacer flex flex-col items-center gap-5 text-sm">
 					<div class="pointer-events-none z-3 cursor-pointer lg:pointer-events-auto">
