@@ -43,16 +43,9 @@
 			.toUpperCase();
 	}
 
-	function scrollToSection(id: string) {
-		const section = document.getElementById(id);
-		if (section) {
-			activeSection.set(id); // sofort setzen
-			document.title = `DARO – ${id.charAt(0).toUpperCase() + id.slice(1)}`; // Tab-Titel
-		}
-	}
-
 	onMount(() => {
 		updateBerlinTime();
+
 		const interval = setInterval(updateBerlinTime, 1000);
 
 		const sections = document.querySelectorAll('section[id]');
