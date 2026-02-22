@@ -124,7 +124,7 @@
 
 <section id="wrapper">
 	<section
-		class="pointer-events-none flex h-screen max-w-full justify-center px-4 lg:pointer-events-auto"
+		class="flex h-screen max-w-full justify-center px-4"
 	>
 		<div class="z-0">
 			<RiveAuge />
@@ -133,7 +133,7 @@
 		<p
 			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-base leading-none uppercase"
 		>
-			<CasinoText text="willkommen" />
+			<CasinoText text="daro.dev" />
 		</p>
 	</section>
 
