@@ -23,7 +23,7 @@
 		'/images/darek-1.jpg',
 		'/images/darek-3.jpg',
 		'/images/darek-4.jpg',
-    '/images/darek-5.jpg'
+		'/images/darek-5.jpg'
 	];
 
 	const links = [
@@ -100,32 +100,18 @@
 			></div>
 		</div>
 
-		<nav class="flex gap-3 text-lg uppercase text-gray-400">
-	<a
-		href="#start"
-		class="px-2"
-		class:text-black={$activeSection === 'start'}
-	>Start</a>
+		<nav class="flex gap-3 text-lg text-gray-400 uppercase">
+			<a href="#start" class="px-2" class:text-black={$activeSection === 'start'}>Start</a>
 
-	<a
-		href="#galerie"
-		class="px-2"
-		class:text-black={$activeSection === 'galerie'}
-	>Galerie</a>
+			<a href="#galerie" class="px-2" class:text-black={$activeSection === 'galerie'}>Galerie</a>
 
-	<a
-		href="#info"
-		class="px-2"
-		class:text-black={$activeSection === 'info'}
-	>Info</a>
-</nav>
+			<a href="#info" class="px-2" class:text-black={$activeSection === 'info'}>Info</a>
+		</nav>
 	</div>
 </header>
 
 <section id="wrapper">
-	<section
-		class="flex h-screen max-w-full justify-center px-4"
-	>
+	<section class="flex h-screen max-w-full justify-center px-4">
 		<div class="z-0">
 			<RiveAuge />
 		</div>
@@ -136,13 +122,11 @@
 			<CasinoText text="darooo" />
 		</p> -->
 
-    <p
+		<p
 			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-xl leading-none uppercase"
 		>
 			<CasinoText text="↓" />
 		</p>
-
-
 	</section>
 
 	<!-- galerie -->
