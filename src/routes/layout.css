@@ -27,6 +27,8 @@
     --color-off: #909090;
 
     --color-hover-text: #111111;
+
+    --color-links: rgb(200, 80, 255);
   }
 
   html[data-theme="dark"] {
@@ -43,6 +45,8 @@
     --color-off: #909090;
 
     --color-hover-text: #111111;
+
+    --color-links: rgb(200, 80, 255);
   }
 
   html,

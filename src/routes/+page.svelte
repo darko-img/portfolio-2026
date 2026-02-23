@@ -251,7 +251,7 @@
 			</div>
 		</div>
 
-		<p class="mx-auto mt-5 mb-10 max-w-sm text-center text-xs md:mt-15 md:max-w-xl lg:mt-20">
+		<p class="mx-auto mt-5 mb-12 max-w-sm text-center text-xs md:mt-15 md:max-w-xl lg:mt-20">
 			Für generelle Anfragen – oder wenn du wissen willst, wo es den besten Burger in Berlin gibt –
 			bin ich jederzeit per <span>
 				<a
@@ -262,7 +262,7 @@
 		</p>
 
 		<footer class="mx-auto flex max-w-full items-center justify-between uppercase">
-			<a href="#start" class="z-3 text-xs uppercase">irgendwo scheint die sonne</a>
+			<a href="#start" class="z-3 text-xs uppercase">irgendwo scheint jetzt die sonne</a>
 			<div class="pointer-events-none text-xs uppercase">
 				{berlinTime}
 			</div>
