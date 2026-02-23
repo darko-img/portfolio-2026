@@ -262,9 +262,9 @@
 		</p>
 
 		<footer class="mx-auto flex max-w-full items-center justify-between uppercase">
-			<a href="#start" class="z-3 text-xs uppercase">nach oben</a>
+			<a href="#start" class="z-3 text-xs uppercase">☀️ irgendwo scheint die sonne</a>
 			<div class="pointer-events-none text-xs uppercase">
-				{berlinTime}
+				{berlinTime} CET
 			</div>
 		</footer>
 	</section>
