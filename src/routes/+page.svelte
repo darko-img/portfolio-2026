@@ -129,7 +129,7 @@
 		</p> -->
 
     <div
-			class="pointer-events-auto lg:pointer-events-none cursor-default absolute right-0 bottom-0 z-100 px-4 py-5 text-right text-4xl md:text-3xl uppercase"
+			class="pointer-events-auto lg:pointer-events-none cursor-default absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-4xl md:text-3xl uppercase"
 		>
 			⋮⋮
   </div>
@@ -262,9 +262,9 @@
 		</p>
 
 		<footer class="mx-auto flex max-w-full items-center justify-between uppercase">
-			<a href="#start" class="z-3 text-xs uppercase">☀️ irgendwo scheint die sonne</a>
+			<a href="#start" class="z-3 text-xs uppercase">irgendwo scheint die sonne</a>
 			<div class="pointer-events-none text-xs uppercase">
-				{berlinTime} CET
+				{berlinTime}
 			</div>
 		</footer>
 	</section>
