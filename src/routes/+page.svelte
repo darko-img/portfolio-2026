@@ -128,11 +128,11 @@
 			<CasinoText text="123" />
 		</p> -->
 
-    <p
-			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-3xl leading-none uppercase"
+    <div
+			class="cursor-default absolute right-0 bottom-0 z-100 px-4 py-5 text-right text-3xl uppercase"
 		>
 			⋮⋮
-		</p>
+  </div>
 	</section>
 
 	<!-- galerie -->
