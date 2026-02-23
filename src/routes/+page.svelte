@@ -122,10 +122,16 @@
 			<CasinoText text="darooo" />
 		</p> -->
 
-		<p
-			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-xl leading-none uppercase"
+		<!-- <p
+			class="pointer-events-none absolute left-0 bottom-0 z-90 px-4 py-5 text-right text-2xl leading-none uppercase"
 		>
-			<CasinoText text="↓" />
+			<CasinoText text="123" />
+		</p> -->
+
+    <p
+			class="pointer-events-none absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-3xl leading-none uppercase"
+		>
+			⋮⋮
 		</p>
 	</section>
 
