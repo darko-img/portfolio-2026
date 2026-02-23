@@ -129,7 +129,7 @@
 		</p> -->
 
     <div
-			class="cursor-default absolute right-0 bottom-0 z-100 px-4 py-5 text-right text-3xl uppercase"
+			class="pointer-events-auto lg:pointer-events-none cursor-default absolute right-0 bottom-0 z-100 px-4 py-5 text-right text-4xl md:text-3xl uppercase"
 		>
 			⋮⋮
   </div>
