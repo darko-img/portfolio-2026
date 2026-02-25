@@ -116,7 +116,7 @@
 	<div class="mx-auto flex max-w-full items-center justify-between">
 		<div class="h-5 w-16 overflow-hidden border">
 			<div
-				class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-250 ease-linear"
+				class="bar h-full origin-left transition-transform duration-250 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"
 			></div>
 		</div>
@@ -151,16 +151,16 @@
 			<CasinoText text="123" />
 		</p> -->
 
-		<div class="toggle button absolute bottom-0 left-0 z-90 px-4 py-5">
+		<div class="absolute bottom-0 left-0 z-90 px-4 py-5">
 			<button
 				on:click={toggleTheme}
 				aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-				class="relative h-6 w-14 rounded-full border transition-colors duration-300"
+				class="cursor-pointer toggleButton relative h-6 w-14 rounded-full transition-colors duration-300"
 			>
 				<span
-					class="absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border transition-all duration-600"
-					class:left-8={isDark}
-					class:left-1={!isDark}
+					class="cursor-pointer toggler absolute top-1/2 h-4 w-4 -translate-y-1/2 bg-[var(--color-toggle)] rounded-full border transition-all duration-600"
+					class:left-9={isDark}
+					class:left-1 ={!isDark}
 				></span>
 			</button>
 		</div>
