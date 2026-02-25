@@ -5,19 +5,18 @@
 	import { writable } from 'svelte/store';
 
 	import VideoCard from '$lib/components/VideoCard.svelte';
-
 	import ArrowSwap from '$lib/components/ArrowSwap.svelte';
-
 	import RadioGrid from '$lib/components/RadioGrid.svelte';
 	import SineGrid from '$lib/components/SineGrid.svelte';
 	import RandomGrid from '$lib/components/RandomGrid.svelte';
-
 	import RiveBackground from '$lib/components/RiveBackground.svelte';
 	import RiveAuge from '$lib/components/RiveAuge.svelte';
-
 	import CasinoText from '$lib/components/CasinoText.svelte';
-
 	import DarekGif from '$lib/components/DarekGif.svelte';
+
+	/* ================================
+	   DATA
+	================================ */
 
 	const frames = [
 		'/images/darek-1.jpg',
@@ -32,11 +31,30 @@
 		{ label: 'linkedin', href: 'https://www.linkedin.com/in/darekimg/' }
 	];
 
+	export let activeSection = writable('start');
+
 	let berlinTime = '';
+	let isDark = false;
 
-	export let activeSection = writable('start'); // Default: Start
+	/* ================================
+	   THEME TOGGLE
+	================================ */
 
-	function updateBerlinTime() {
+	function toggleTheme(): void {
+		isDark = !isDark;
+
+		if (isDark) {
+			document.documentElement.dataset.theme = 'dark';
+		} else {
+			delete document.documentElement.dataset.theme;
+		}
+	}
+
+	/* ================================
+	   TIME
+	================================ */
+
+	function updateBerlinTime(): void {
 		berlinTime = new Date()
 			.toLocaleString('de-DE', {
 				timeZone: 'Europe/Berlin',
@@ -47,12 +65,15 @@
 			.toUpperCase();
 	}
 
+	/* ================================
+	   LIFECYCLE
+	================================ */
+
 	onMount(() => {
 		updateBerlinTime();
-
 		const interval = setInterval(updateBerlinTime, 1000);
 
-		const sections = document.querySelectorAll('section[id]');
+		const sections = document.querySelectorAll<HTMLElement>('section[id]');
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -60,14 +81,14 @@
 					if (entry.isIntersecting) {
 						const id = entry.target.id;
 						activeSection.set(id);
-						document.title = `DARO – ${id.toUpperCase()}`; // Tab-Titel aktualisieren
+						document.title = `DARO – ${id.toUpperCase()}`;
 					}
 				});
 			},
 			{
 				root: null,
 				rootMargin: '100px',
-				threshold: 0.35 //
+				threshold: 0.35
 			}
 		);
 
@@ -91,21 +112,23 @@
 
 <section id="start"></section>
 
-<header id="header" class="sticky top-0 z-100 w-full bg-[var(--color-bg)] px-1 py-1">
+<header id="header" class="sticky top-0 z-100 w-full px-1 py-1">
 	<div class="mx-auto flex max-w-full items-center justify-between">
-		<div class="h-5 w-16 overflow-hidden bg-gray-200">
+		<div class="h-5 w-16 overflow-hidden border">
 			<div
 				class="h-full origin-left bg-[var(--color-progress)] transition-transform duration-250 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"
 			></div>
 		</div>
 
-		<nav class="flex gap-3 text-lg text-gray-400 uppercase">
-			<a href="#start" class="px-2" class:text-black={$activeSection === 'start'}>Start</a>
+		<nav class="flex gap-3 text-lg uppercase">
+			<a href="#start" class="px-2" class:text-gray-400={$activeSection === 'start'}
+				>Start</a
+			>
 
-			<a href="#galerie" class="px-2" class:text-black={$activeSection === 'galerie'}>Galerie</a>
+			<a href="#galerie" class="px-2" class:text-gray-400={$activeSection === 'galerie'}>Galerie</a>
 
-			<a href="#info" class="px-2" class:text-black={$activeSection === 'info'}>Info</a>
+			<a href="#info" class="px-2" class:text-gray-400={$activeSection === 'info'}>Info</a>
 		</nav>
 	</div>
 </header>
@@ -128,11 +151,25 @@
 			<CasinoText text="123" />
 		</p> -->
 
-    <div
-			class="pointer-events-auto lg:pointer-events-none cursor-default absolute right-0 bottom-0 z-90 px-4 py-5 text-right text-4xl md:text-3xl uppercase"
+		<div class="toggle button absolute bottom-0 left-0 z-90 px-4 py-5">
+			<button
+				on:click={toggleTheme}
+				aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+				class="relative h-6 w-14 rounded-full border transition-colors duration-300"
+			>
+				<span
+					class="absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full border transition-all duration-600"
+					class:left-8={isDark}
+					class:left-1={!isDark}
+				></span>
+			</button>
+		</div>
+
+		<div
+			class="pointer-events-auto absolute right-0 bottom-0 z-90 cursor-default px-4 py-5 text-right text-4xl uppercase md:text-3xl lg:pointer-events-none"
 		>
 			⋮⋮
-  </div>
+		</div>
 	</section>
 
 	<!-- galerie -->
@@ -151,7 +188,7 @@
 		</div>
 
 		<!-- video loop -->
-		<div class="z-3 mt-1 grid cursor-pointer gap-3 md:gap-1 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="z-3 mt-1 grid cursor-pointer gap-3 sm:grid-cols-2 md:gap-1 lg:grid-cols-3">
 			{#each videos as video, i}
 				<div class={i >= 6 ? 'hidden sm:block' : ''}>
 					<VideoCard {video} />
@@ -262,7 +299,7 @@
 		</p>
 
 		<footer class="mx-auto flex max-w-full items-center justify-between uppercase">
-			<a href="#start" class="z-3 text-xs uppercase">irgendwo scheint jetzt die sonne</a>
+			<a href="#start" class="z-3 text-xs uppercase">ce n’est pas un site web</a>
 			<div class="pointer-events-none text-xs uppercase">
 				{berlinTime}
 			</div>

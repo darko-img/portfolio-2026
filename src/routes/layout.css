@@ -18,23 +18,22 @@
 
     --color-bg: #ffffff;
 
-    --color-text: #111111;
+    --color-text: #161616;
 
-    --color-border: #111111;
+    --color-border: #161616;
 
-    --color-progress: #111111;
+    --color-progress: #161616;
 
     --color-off: #909090;
 
-    --color-hover-text: #111111;
+    --color-hover-text: #161616;
 
-    --color-links: rgb(200, 80, 255);
   }
 
   html[data-theme="dark"] {
     /* Dark */
 
-    --color-bg: #111111;
+    --color-bg: #161616;
 
     --color-text: #ffffff;
 
@@ -44,9 +43,8 @@
 
     --color-off: #909090;
 
-    --color-hover-text: #111111;
+    --color-hover-text: #161616;
 
-    --color-links: rgb(200, 80, 255);
   }
 
   html,
@@ -70,7 +68,16 @@
     -moz-osx-font-smoothing: auto;
   }
 
-  #wrapper {
+  wrapper {
     overflow-x: hidden;
+  }
+
+  header {
+  background-color: var(--color-bg);
+  transition: background-color 0.5s cubic-bezier(0.42,0,0.58,1);
+  }
+
+  .menu {
+    color: var(--color-text);
   }
 }
