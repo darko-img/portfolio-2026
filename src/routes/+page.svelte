@@ -11,7 +11,6 @@
 	import RandomGrid from '$lib/components/RandomGrid.svelte';
 	import RiveBackground from '$lib/components/RiveBackground.svelte';
 	import RiveAuge from '$lib/components/RiveAuge.svelte';
-	import CasinoText from '$lib/components/CasinoText.svelte';
 	import DarekGif from '$lib/components/DarekGif.svelte';
 
 	/* ================================
@@ -114,7 +113,7 @@
 
 <header id="header" class="sticky top-0 z-100 w-full px-1 py-1">
 	<div class="mx-auto flex max-w-full items-center justify-between">
-		<div class="h-5 w-16 overflow-hidden border">
+		<div class="bg-bar h-5 w-16 overflow-hidden transition-colors duration-300">
 			<div
 				class="bar h-full origin-left transition-transform duration-250 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"

@@ -30,9 +30,11 @@
 
     --color-rev: #161616;
 
-    --color-toggle-btn: #acacac;
+    --color-toggle-btn: #b5b5b5;
 
     --color-toggle: #ffffff;
+
+    --color-bg-bar: #dedede;
 
   }
 
@@ -56,6 +58,8 @@
     --color-toggle: #161616;
 
     --color-toggle-btn: #ffffff;
+
+    --color-bg-bar: #b5b5b5;
 
   }
 
@@ -103,5 +107,9 @@
 
   .bar {
     background-color: var(--color-rev);
+  }
+
+  .bg-bar {
+    background-color: var(--color-bg-bar);
   }
 }
