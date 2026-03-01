@@ -1,56 +1,75 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.png';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy, tick } from 'svelte';
+	import { afterNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
 	import Lenis from 'lenis';
 	import { scrollProgress } from '$lib/stores/scroll';
 	import Tempus from 'tempus';
 
 	let { children } = $props();
 
-	onMount(() => {
-		const isMobile = window.innerWidth < 768;
+	let lenis: Lenis;
+	let rafId: number;
+	let displayedProgress = 0;
 
-		const lenis = new Lenis({
-			duration: isMobile ? 0.8 : 0.8,
-			easing: (t: number) => 1 - Math.pow(1 - t, 4)
-		});
-
-		let rafId: number;
-		let displayedProgress = 0; // interpolierter Wert
-
+	function startRAF() {
 		function raf(time: number) {
 			lenis.raf(time);
 
-			// Zielwert: aktueller Scroll-Prozentwert
-			const targetProgress = Math.min((lenis.scroll / lenis.limit) * 100, 100);
+			const target = Math.min(
+				(lenis.scroll / lenis.limit) * 100,
+				100
+			);
 
-			// Linear interpolation für ultra-smooth Übergang
-			displayedProgress += (targetProgress - displayedProgress) * 0.2;
+			const diff = target - displayedProgress;
 
-			// Setze den interpolierten Wert
-			scrollProgress.set(displayedProgress);
+			if (Math.abs(diff) > 0.05) {
+				displayedProgress += diff * 0.2;
+				scrollProgress.set(displayedProgress);
+			} else if (Math.abs(diff) > 0.001) {
+				displayedProgress = target;
+				scrollProgress.set(displayedProgress);
+			}
 
 			rafId = requestAnimationFrame(raf);
 		}
 
 		rafId = requestAnimationFrame(raf);
+	}
 
-		// global verfügbar machen
+	onMount(() => {
+		if (!browser) return; // 💥 SSR-Schutz
+
+		lenis = new Lenis({
+			duration: 0.8,
+			easing: (t: number) => 1 - Math.pow(1 - t, 4),
+			autoResize: true
+		});
+
+		startRAF();
+
+		afterNavigate(async () => {
+			await tick();
+			lenis.resize();
+		});
+
 		// @ts-ignore
 		window.lenis = lenis;
 
-		// === Tempus nur für Animationen ===
 		if (!(window as any).__tempus_started) {
 			(window as any).__tempus_started = true;
 			Tempus.restart();
-			console.log('Tempus restarted globally');
 		}
+	});
 
-		onDestroy(() => {
-			cancelAnimationFrame(rafId);
-			lenis.destroy();
-		});
+	onDestroy(() => {
+		// 💥 SSR-Schutz auch hier
+		if (!browser) return;
+
+		cancelAnimationFrame(rafId);
+		lenis?.destroy();
 	});
 </script>
 
