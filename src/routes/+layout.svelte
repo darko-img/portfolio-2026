@@ -21,6 +21,11 @@
 		function raf(time: number) {
 			lenis.raf(time);
 
+			// optional leicht throttlen
+			const progress = Math.min((lenis.scroll / lenis.limit) * 100, 100);
+
+			scrollProgress.set(progress);
+
 			rafId = requestAnimationFrame(raf);
 		}
 
