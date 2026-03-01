@@ -113,7 +113,7 @@
 
 <header id="header" class="sticky top-0 z-100 w-full px-1 py-1">
 	<div class="mx-auto flex max-w-full items-center justify-between">
-		<div class="bg-bar h-5 w-16 overflow-hidden transition-colors duration-300">
+		<div class="bg-bar h-5 w-20 overflow-hidden transition-colors duration-300">
 			<div
 				class="bar h-full origin-left transition-transform duration-250 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"
