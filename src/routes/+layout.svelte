@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.png';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import Lenis from 'lenis';
 	import { scrollProgress } from '$lib/stores/scroll';
 	import Tempus from 'tempus';
@@ -17,21 +17,26 @@
 		});
 
 		let rafId: number;
+		let displayedProgress = 0; // interpolierter Wert
 
 		function raf(time: number) {
 			lenis.raf(time);
 
-			// optional leicht throttlen
-			const progress = Math.min((lenis.scroll / lenis.limit) * 100, 100);
+			// Zielwert: aktueller Scroll-Prozentwert
+			const targetProgress = Math.min((lenis.scroll / lenis.limit) * 100, 100);
 
-			scrollProgress.set(progress);
+			// Linear interpolation für ultra-smooth Übergang
+			displayedProgress += (targetProgress - displayedProgress) * 0.2;
+
+			// Setze den interpolierten Wert
+			scrollProgress.set(displayedProgress);
 
 			rafId = requestAnimationFrame(raf);
 		}
 
 		rafId = requestAnimationFrame(raf);
 
-		// global verfügbar
+		// global verfügbar machen
 		// @ts-ignore
 		window.lenis = lenis;
 
@@ -42,10 +47,10 @@
 			console.log('Tempus restarted globally');
 		}
 
-		return () => {
+		onDestroy(() => {
 			cancelAnimationFrame(rafId);
 			lenis.destroy();
-		};
+		});
 	});
 </script>
 
