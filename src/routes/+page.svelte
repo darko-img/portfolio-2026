@@ -41,14 +41,18 @@
 	================================ */
 
 	function toggleTheme(): void {
-		isDark = !isDark;
+	isDark = !isDark;
 
-		if (isDark) {
-			document.documentElement.dataset.theme = 'dark';
-		} else {
-			delete document.documentElement.dataset.theme;
-		}
+	const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+	if (isDark) {
+		document.documentElement.dataset.theme = 'dark';
+		metaTheme?.setAttribute('content', '#161616');
+	} else {
+		delete document.documentElement.dataset.theme;
+		metaTheme?.setAttribute('content', '#ffffff');
 	}
+}
 
 	/* ================================
 	   TIME
