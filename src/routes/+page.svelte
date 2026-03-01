@@ -44,9 +44,9 @@
 		isDark = !isDark;
 
 		if (isDark) {
-			document.documentElement.setAttribute('data-theme', 'dark');
+			document.documentElement.dataset.theme = 'dark';
 		} else {
-			document.documentElement.removeAttribute('data-theme');
+			delete document.documentElement.dataset.theme;
 		}
 	}
 
@@ -122,7 +122,9 @@
 		</div>
 
 		<nav class="flex gap-3 text-lg uppercase">
-			<a href="#start" class="px-2" class:text-gray-400={$activeSection === 'start'}>Start</a>
+			<a href="#start" class="px-2" class:text-gray-400={$activeSection === 'start'}
+				>Start</a
+			>
 
 			<a href="#galerie" class="px-2" class:text-gray-400={$activeSection === 'galerie'}>Galerie</a>
 
@@ -153,12 +155,12 @@
 			<button
 				on:click={toggleTheme}
 				aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-				class="toggleButton relative h-6 w-14 cursor-pointer rounded-full transition-colors duration-300"
+				class="cursor-pointer toggleButton relative h-6 w-14 rounded-full transition-colors duration-300"
 			>
 				<span
-					class="toggler absolute top-1/2 h-4 w-4 -translate-y-1/2 cursor-pointer rounded-full border bg-[var(--color-toggle)] transition-all duration-600"
+					class="cursor-pointer toggler absolute top-1/2 h-4 w-4 -translate-y-1/2 bg-[var(--color-toggle)] rounded-full border transition-all duration-600"
 					class:left-9={isDark}
-					class:left-1={!isDark}
+					class:left-1 ={!isDark}
 				></span>
 			</button>
 		</div>
