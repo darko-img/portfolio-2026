@@ -115,7 +115,7 @@
 	<div class="mx-auto flex max-w-full items-center justify-between">
 		<div class="bg-bar h-5 w-18 overflow-hidden transition-colors duration-300">
 			<div
-				class="bar h-full origin-left transition-transform duration-300 ease-linear"
+				class="bar h-full origin-left transition-colors transition-transform duration-300 ease-linear"
 				style="transform: scaleX({$scrollProgress / 100})"
 			></div>
 		</div>
