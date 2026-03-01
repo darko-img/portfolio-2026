@@ -107,7 +107,6 @@
 
   .bar {
     background-color: var(--color-rev);
-    will-change: transform;
   }
 
   .bg-bar {

@@ -12,7 +12,7 @@
 		const isMobile = window.innerWidth < 768;
 
 		const lenis = new Lenis({
-			duration: isMobile ? 1.6 : 0.8,
+			duration: isMobile ? 0.8 : 0.8,
 			easing: (t: number) => 1 - Math.pow(1 - t, 4)
 		});
 
