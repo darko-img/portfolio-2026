@@ -47,10 +47,16 @@
 
 	if (isDark) {
 		document.documentElement.dataset.theme = 'dark';
-		metaTheme?.setAttribute('content', '#161616');
+
+		setTimeout(() => {
+			metaTheme?.setAttribute('content', '#161616');
+		}, 300); // gleiche Dauer wie CSS transition
 	} else {
-		delete document.documentElement.dataset.theme;
-		metaTheme?.setAttribute('content', '#ffffff');
+		document.documentElement.removeAttribute('data-theme');
+
+		setTimeout(() => {
+			metaTheme?.setAttribute('content', '#ffffff');
+		}, 300);
 	}
 }
 
